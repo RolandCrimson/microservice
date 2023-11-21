@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>RockPaperScissors</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+  <script th:src="@{/js/rps-client.js}"></script>
+</head>
+
+<body onload="initRps()">
+<div>
+  <h1>가위 바위 보 게임</h1>
+  <h2>오늘의 도전</h2>
+  <p>
+  <label for="rps">당신의 선택: </label>
+  <select name="rps_choice" id="rps" onchange="drawImage()">
+      <option value="0">선택</option>
+      <option value="가위">가위</option>
+      <option value="바위">바위</option>
+      <option value="보">보</option>
+  </select>
+  <img id="userImage" src="" width="55" height="65">
+  <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  <label for="opponentImage">컴퓨터 선택: </label>
+  <img id="opponentImage" src="" width="55" height="65"><br>
+  닉네임: <input type="text" name="user-alias" id="user"><br>
+  <input type="button" value="확인" onclick="sendData()">
+  </p>
+  <h2><span class="result-message"></span></h2>
+  <h2>최근 답안</h2>
+  <table id="results" style="width:100%">
+    <thead>
+      <tr>
+        <th>답안 ID</th>
+        <th>사용자</th>
+        <th>컴퓨터</th>
+        <th>결과</th>
+      </tr>
+    </thead>
+    <tbody id="results-body"></tbody>
+  </table>
+</div>
+</body>
+</html>
